@@ -10,20 +10,18 @@ html,body{
 }
 
 
-:root{
-  --x: 100px;
-  --y: 100px
-
-}
-
 body{
-  background-image: url("./moon\ .jpg");
-  background-size: cover;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right bottom,rgb(32, 32, 32),rgb(18, 18, 18),black);
 }
 
-#box{
-    height: 100%;
-    width: 100%;
-   background: radial-gradient(200px at var(--x) var(--y) ,rgba(255, 255, 255, 0)40% ,rgba(0, 0, 0, 0.816));
-}
 
+
+p{
+  color: rgb(115, 255, 0);
+  font-weight: 500;
+  font-size: 40px;
+}
