@@ -290,6 +290,43 @@ function changeTheme() {
 changeTheme()
 
 
+
+
+    function timeDate() {
+        const totalDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        var date = new Date()
+        var dayOfWeek = totalDaysOfWeek[date.getDay()]
+        var hours = date.getHours()
+        var minutes = date.getMinutes()
+        var seconds = date.getSeconds()
+        var tarik = date.getDate()
+        var month = monthNames[date.getMonth()]
+        var year = date.getFullYear()
+
+        header1Date.innerHTML = `${tarik} ${month}, ${year}`
+
+        if (hours > 12) {
+            header1Time.innerHTML = `${dayOfWeek}, ${String(hours - 12).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} PM`
+
+        } else {
+            header1Time.innerHTML = `${dayOfWeek}, ${String(hours).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} AM`
+        }
+    }
+
+    setInterval(() => {
+        timeDate()
+    }, 1000);
+
+
+weatherFunctionality()
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const lat = 28.6139
@@ -346,40 +383,4 @@ document.addEventListener("DOMContentLoaded", () => {
     weatherAPICall()
     setInterval(weatherAPICall, 600000) // auto refresh every 10 minutes
 })
-
-
-
-
-    function timeDate() {
-        const totalDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-        var date = new Date()
-        var dayOfWeek = totalDaysOfWeek[date.getDay()]
-        var hours = date.getHours()
-        var minutes = date.getMinutes()
-        var seconds = date.getSeconds()
-        var tarik = date.getDate()
-        var month = monthNames[date.getMonth()]
-        var year = date.getFullYear()
-
-        header1Date.innerHTML = `${tarik} ${month}, ${year}`
-
-        if (hours > 12) {
-            header1Time.innerHTML = `${dayOfWeek}, ${String(hours - 12).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} PM`
-
-        } else {
-            header1Time.innerHTML = `${dayOfWeek}, ${String(hours).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} AM`
-        }
-    }
-
-    setInterval(() => {
-        timeDate()
-    }, 1000);
-
-
-weatherFunctionality()
 
