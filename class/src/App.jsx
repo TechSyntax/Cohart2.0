@@ -7,7 +7,9 @@ const App = () => {
   const [userimg, setUserimg] = useState('')
     const [userdes, setUserdes] = useState('')
   const [role, setRole] = useState('')
-  const [users, setUsers] = useState([])
+
+  const localData = JSON.parse(localStorage.getItem('users')) || []
+ const [users, setUsers] = useState(localData)
 
   const handlesubmit = (e) => {
     e.preventDefault()
@@ -15,7 +17,8 @@ const App = () => {
     const newuser = [...users]
     newuser.push({username, userimg, role, userdes})
     setUsers(newuser)
-console.log(newuser);
+ localData.push({username, userimg, role, userdes})
+    localStorage.setItem('users', JSON.stringify(localData))
 
     setUserimg('')
     setUsername('')
@@ -28,6 +31,7 @@ console.log(newuser);
      const newusers = [...users]
      newusers.splice(idx,1)
      setUsers(newusers)
+      localStorage.setItem('users', JSON.stringify(newusers))
   }
 
   return (
